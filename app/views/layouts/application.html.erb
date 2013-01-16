@@ -5,10 +5,18 @@
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  <%= yield %>
+  <div id="container">
+    <h1>Clan Longhi <%= l today.date %></h1>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+    <%= image_tag '/paleobros.jpg' %>
+    <footer>
+      <p>happily made in mikamai 16th january 2013</p>
+    </footer>
+  </div>
 </body>
 </html>

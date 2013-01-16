@@ -1,11 +1,12 @@
-<h1>Clan Longhi <%= l today.date %></h1>
 <% if reservations_time? %>
   <p>
     <% unless today.full? %>
-      <%= button_to 'prenotati', slots_path, :method => :post %>
+      <%= button_to 'prenota', slots_path, :method => :post, :class => 'bookme' %>
+    <% else %>
+      Spiacente, il clan oggi è già al completo.
     <% end %>
   </p>
-  <p style="color:red">Attenzione: se ti prenoti e poi non partecipi al pranzo verrai bannato a vita dal servizio.</p>
+  <p class="warning">Attenzione: non abusarmi, se ti prenoti e poi non partecipi al pranzo verrai bannato!</p>
 <% else %>
   <p>Le prenotazioni ora sono chiuse. Ripassa tra le 10:00 e le 12:00</p>
 <% end %>
