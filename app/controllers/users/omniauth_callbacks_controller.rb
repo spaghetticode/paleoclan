@@ -1,5 +1,4 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
-  skip_before_filter :authenticate_user, :only => :facebook
 
   def facebook
     # You need to implement the method below in your model (e.g. app/models/user.rb)
@@ -7,7 +6,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if @user.persisted?
       sign_in @user, :event => :authentication #this will throw if @user is not activated
       set_flash_message(:notice, :success, :kind => "Facebook") if is_navigational_format?
-      redirect_to today_path
+      redirect_to today_url
     else
       session["devise.facebook_data"] = request.env["omniauth.auth"]
       redirect_to new_user_registration_url

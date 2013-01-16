@@ -1,6 +1,8 @@
 # coding: utf-8
 
 class SlotsController < ApplicationController
+  before_filter :authenticate_user!
+
   def create
     if reservations_time?
       @slot = Slot.new(:user => current_user, :day => today)
