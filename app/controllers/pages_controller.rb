@@ -1,8 +1,6 @@
 class PagesController < ApplicationController
-  before_filter :authenticate_user!, :except => :index
-  def index
-  end
+  skip_before_filter :authenticate_user, :only => :index
 
-  def protect
+  def index
   end
 end

@@ -1,7 +1,11 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
-  # test "the truth" do
-  #   assert true
-  # end
+  def setup
+    @user = FactoryGirl.create(:user)
+  end
+
+  test 'is valid' do
+    assert @user.valid?
+  end
 end
