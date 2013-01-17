@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
 
   def reservations_time?
     hour = Time.zone.now.hour
-    !!(hour >= 10 and hour <= 12)
+    hour >= 10 and hour <= 12
   end
 
   def today
