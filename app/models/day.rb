@@ -13,7 +13,7 @@ class Day < ActiveRecord::Base
   end
 
   def full?
-    slots.count >= CAPABILITY
+    slots.count >= settings_capability
   end
 
   def user_names
@@ -27,6 +27,10 @@ class Day < ActiveRecord::Base
   private
 
   def set_capability
-    self.capability = Settings.capability unless capability
+    self.capability = settings_capability unless capability
+  end
+
+  def settings_capability
+    Settings.capability
   end
 end
