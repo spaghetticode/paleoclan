@@ -1,5 +1,5 @@
 class Day < ActiveRecord::Base
-  CAPABILITY = 1
+  CAPABILITY = 2
 
   has_many :slots
   has_many :users, :through => :slots
