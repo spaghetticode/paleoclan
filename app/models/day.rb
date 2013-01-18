@@ -15,7 +15,7 @@ class Day < ActiveRecord::Base
   end
 
   def full?
-    slots.count >= capability
+    slots.count >= CAPABILITY
   end
 
   def user_names
