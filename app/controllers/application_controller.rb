@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :today, :reservations_time?
+  helper_method :today, :reservations_time?, :friday?
 
   private
 
@@ -11,5 +11,9 @@ class ApplicationController < ActionController::Base
 
   def today
     @today ||= Day.today
+  end
+
+  def friday?
+    Date.today.wday == 6
   end
 end
