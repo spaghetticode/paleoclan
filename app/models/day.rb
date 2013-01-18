@@ -1,6 +1,4 @@
 class Day < ActiveRecord::Base
-  CAPABILITY = 2
-
   has_many :slots
   has_many :users, :through => :slots
 
@@ -29,6 +27,6 @@ class Day < ActiveRecord::Base
   private
 
   def set_capability
-    self.capability = CAPABILITY unless capability
+    self.capability = Settings.capability unless capability
   end
 end
