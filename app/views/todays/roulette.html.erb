@@ -1,0 +1,22 @@
+<% if reservations_time? %>
+  <p>
+    <% unless current_user.bet?(today) %>
+      Partecipa alla roulette del venerdì, puoi vincere l'iscrizione al clan di oggi!
+        <%= button_to 'iscriviti', bets_path, :method => :post, :class => 'bookme' %>
+    <% else %>
+      Oggi roulette! Torna subito dopo le 12:00 per vedere se hai vinto
+    <% end %>
+  </p>
+<% else %>
+  <p>Le prenotazioni ora sono chiuse. Ripassa tra le 10:00 e le 12:00</p>
+<% end %>
+
+<h2>Persone prenotate per oggi</h2>
+<ul>
+  <% Settings.default.each do |name| %>
+    <li><%= name %></li>
+  <% end %>
+  <% today.user_names.each do |name| %>
+    <li><%= name %></li>
+  <% end %>
+</ul>
