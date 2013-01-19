@@ -17,6 +17,8 @@ group :test, :development do
   gem 'factory_girl_rails'
   gem 'rb-fsevent', '~> 0.9.1'
   gem 'ruby-prof'
+  gem 'mocha', :require => false
+  gem 'pry'
 end
 
 group :tools do

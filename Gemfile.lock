@@ -78,8 +78,11 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    metaclass (0.0.1)
     method_source (0.8.1)
     mime-types (1.19)
+    mocha (0.13.1)
+      metaclass (~> 0.0.1)
     multi_json (1.5.0)
     multipart-post (1.1.5)
     oauth2 (0.8.0)
@@ -164,9 +167,11 @@ DEPENDENCIES
   factory_girl_rails
   guard-test
   jquery-rails
+  mocha
   omniauth
   omniauth-facebook
   pg
+  pry
   rails (= 3.2.11)
   rb-fsevent (~> 0.9.1)
   ruby-prof
