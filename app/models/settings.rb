@@ -1,5 +1,5 @@
 class Settings < ActiveRecord::Base
-  KEYS = %w[capability consecutive roulette default]
+  KEYS = %w[capability consecutive roulette default open_hour close_hour ]
 
   attr_accessible :data
   serialize       :data
