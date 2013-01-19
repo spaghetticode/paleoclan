@@ -1,5 +1,6 @@
 Paleoclan::Application.routes.draw do
   root  :to => 'pages#index'
+  match '/menu'  => 'pages#menu'
   match '/rules' => 'pages#rules'
 
   resources :slots
