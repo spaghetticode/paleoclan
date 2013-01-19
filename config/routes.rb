@@ -3,7 +3,7 @@ Paleoclan::Application.routes.draw do
   match '/menu'  => 'pages#menu'
   match '/rules' => 'pages#rules'
 
-  resources :slots
+  resources :slots, :bets
   resource :today do
     get :roulette
   end

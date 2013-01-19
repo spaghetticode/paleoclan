@@ -1,14 +1,8 @@
 require 'test_helper'
 
 class SlotsControllerTest < ActionController::TestCase
-  test "should get create" do
-    get :create
-    assert_response :success
+  test 'redirects to homepage when not logged in' do
+    post :create
+    assert_redirected_to root_path
   end
-
-  test "should get destroy" do
-    get :destroy
-    assert_response :success
-  end
-
 end
