@@ -59,6 +59,8 @@ class User < ActiveRecord::Base
     res
   end
 
+  private
+
   def test_days
     slots.limit(Settings.consecutive).map(&:day).reverse
   end
