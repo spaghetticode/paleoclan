@@ -1,7 +1,9 @@
 data = {
-  :capability  => 1,
+  :capability  => 3,
   :consecutive => 2,
-  :roulette    => 'friday',
+  :roulette    => 5,
+  :open_hour   => 10,
+  :close_hour  => 12,
   :default     => ['Andrea Longhi', 'Diego Franciosi']
 }
 
