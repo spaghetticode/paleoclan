@@ -1,0 +1,11 @@
+development:
+  id: ''
+  secret: ''
+
+test:
+  id: ''
+  secret: ''
+
+production:
+  id: ''
+  secret: ''
