@@ -7,7 +7,22 @@ class ActiveSupport::TestCase
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
-  fixtures :all
+  # fixtures :all
 
   # Add more helper methods to be used by all tests here...
+end
+
+require 'mocha/setup'
+
+class ActiveSupport::TestCase
+  module Settings
+    extend self
+
+    def capability;3;end
+    def consecutive;2;end
+    def roulette;5;end
+    def open_hour;10;end
+    def close_hour;12;end
+    def default;['Andrea Longhi'];end
+  end
 end
