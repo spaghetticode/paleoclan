@@ -14,10 +14,12 @@ end
 
 require 'mocha/setup'
 
-class ActiveSupport::TestCase
-  module Settings
-    extend self
+class ActionController::TestCase
+  include Devise::TestHelpers
+end
 
+class Settings
+  class << self
     def capability;3;end
     def consecutive;2;end
     def roulette;5;end

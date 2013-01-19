@@ -14,7 +14,7 @@ class Day < ActiveRecord::Base
   end
 
   def full?
-    slots.count >= settings_capability
+    availability < 1
   end
 
   def user_names
@@ -26,10 +26,10 @@ class Day < ActiveRecord::Base
   end
 
   def extract_winners
-    users = bets.map(&:user)
-    availability.times do
+    users = bets_users
+    while availability > 0 and users.present?
       user = users.delete(users.sample)
-      Slot.create(:user => user, :day => self)
+      slot = Slot.create(:user => user, :day => self)
     end
   end
 
@@ -37,12 +37,8 @@ class Day < ActiveRecord::Base
     [0, 6].include? date.wday
   end
 
-  def settings_capability
-    Settings.capability
-  end
-
   def availability
-    capability - slots.size - Settings.default.size
+    capability - slots.count - Settings.default.size
   end
 
   def next_day
@@ -61,5 +57,13 @@ class Day < ActiveRecord::Base
 
   def set_capability
     self.capability = settings_capability unless capability
+  end
+
+  def settings_capability
+    Settings.capability
+  end
+
+  def bets_users
+    bets.map(&:user)
   end
 end
