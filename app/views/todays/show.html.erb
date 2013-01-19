@@ -1,21 +1,25 @@
-<% if reservations_time? %>
-  <p>
-    <% unless today.full? %>
-      <%= button_to 'prenota', slots_path, :method => :post, :class => 'bookme' %>
-    <% else %>
-      Spiacente, il clan oggi è già al completo.
-    <% end %>
-  </p>
+<% if weekend? %>
+  <p>Il clan non si riunisce durante il weekend, ripassa in settimana!</p>
 <% else %>
-  <p>Le prenotazioni ora sono chiuse. Ripassa tra le 10:00 e le 12:00</p>
-<% end %>
+  <% if reservations_time? %>
+    <p>
+      <% unless today.full? %>
+        <%= button_to 'prenota', slots_path, :method => :post, :class => 'bookme' %>
+      <% else %>
+        Spiacente, il clan oggi è già al completo.
+      <% end %>
+    </p>
+  <% else %>
+    <p>Le prenotazioni ora sono chiuse. Ripassa tra le 10:00 e le 12:00</p>
+  <% end %>
 
-<h2>Persone prenotate per oggi</h2>
-<ul>
-  <% Settings.default.each do |name| %>
-    <li><%= name %></li>
-  <% end %>
-  <% today.user_names.each do |name| %>
-    <li><%= name %></li>
-  <% end %>
-</ul>
+  <h2>Persone prenotate per oggi</h2>
+  <ul>
+    <% Settings.default.each do |name| %>
+      <li><%= name %></li>
+    <% end %>
+    <% today.user_names.each do |name| %>
+      <li><%= name %></li>
+    <% end %>
+  </ul>
+<% end %>

@@ -10,12 +10,18 @@
 <body>
   <div id="container">
     <h1>Clan Longhi <%= l today.date %></h1>
+    <section id="navigation">
+      <%= link_to 'home', root_path %> |
+      <%= link_to 'regole', rules_path %> |
+      <%= link_to 'menu', menu_path %>
+    </section>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
     <%= image_tag '/paleobros.jpg' %>
     <footer>
-      <p>happily made in mikamai 16th january 2013</p>
+      <p>happily started in MIKAMAI on january 16th 2013</p>
     </footer>
   </div>
 </body>
