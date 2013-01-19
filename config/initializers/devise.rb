@@ -1,4 +1,11 @@
-fb = YAML.load_file(Rails.root.join('config/facebook.yml'))[Rails.env]
+fb = begin
+  unless Rails.env.production?
+    YAML.load_file(Rails.root.join('config/facebook.yml'))[Rails.env]
+  else
+    fb = {'id' => ENV['FB_ID'], 'secret' => ENV['FB_SECRET']}
+  end
+end
+
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
