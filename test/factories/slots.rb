@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :slot do
     user
-    day
+    association :day, :factory => :workday
   end
 end
