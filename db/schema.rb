@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130119193715) do
+ActiveRecord::Schema.define(:version => 20130120085811) do
 
   create_table "bets", :force => true do |t|
     t.integer  "user_id"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20130119193715) do
     t.string   "name"
     t.boolean  "banned",                                :default => false
     t.integer  "ban_count",                             :default => 0
+    t.boolean  "admin",                                 :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
