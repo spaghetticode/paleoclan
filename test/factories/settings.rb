@@ -4,12 +4,12 @@ FactoryGirl.define do
   factory :settings, :class => 'Settings' do
     data {
         {
-        :capability  => 3,
-        :consecutive => 2,
-        :roulette    => 5,
-        :open_hour   => 10,
-        :close_hour  => 12,
-        :default     => ['Andrea Longhi']
+        'capability'  => 3,
+        'consecutive' => 2,
+        'roulette'    => 5,
+        'open_hour'   => 10,
+        'close_hour'  => 12,
+        'default'     => ['Andrea Longhi']
       }
     }
   end

@@ -2,7 +2,7 @@
 # have settings on the filesystem and edit them. Looks like a hack but works
 
 class Settings < ActiveRecord::Base
-  KEYS = %w[capability consecutive roulette default open_hour close_hour ]
+  KEYS = %w[capability consecutive roulette default open_hour close_hour]
 
   attr_accessible :data
   serialize       :data
