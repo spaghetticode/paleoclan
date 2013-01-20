@@ -62,5 +62,8 @@ module Paleoclan
     config.generators do |g|
       g.fixture_replacement :factory_girl
     end
+    config.generators.stylesheets = false
+    config.generators.javascripts = false
+    config.generators.helper      = false
   end
 end
