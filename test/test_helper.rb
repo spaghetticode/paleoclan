@@ -25,3 +25,11 @@ class Settings
     @factory.send name, *args, &block
   end
 end
+
+def sign_in_user
+  sign_in :user, FactoryGirl.create(:user)
+end
+
+def sign_in_admin
+  sign_in :user, FactoryGirl.create(:admin)
+end

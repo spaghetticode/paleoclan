@@ -11,7 +11,7 @@ class BetsControllerTest < ActionController::TestCase
 
   test 'redirects to today_path when not roulette day' do
     @controller.stubs(:roulette?).returns(false)
-    sign_in :user, FactoryGirl.create(:user)
+    sign_in_user
     post :create
     assert_redirected_to today_path
   end
@@ -19,7 +19,7 @@ class BetsControllerTest < ActionController::TestCase
   test 'sets notice message when successfully creates bet' do
     Bet.any_instance.stubs(:save).returns(true)
     @controller.stubs(:roulette?).returns(true)
-    sign_in :user, FactoryGirl.create(:user)
+    sign_in_user
     post :create
     assert flash[:notice].present?
   end
@@ -27,7 +27,7 @@ class BetsControllerTest < ActionController::TestCase
   test 'sets alert message when cant create bet' do
     Bet.any_instance.stubs(:save).returns(false)
     @controller.stubs(:roulette?).returns(true)
-    sign_in :user, FactoryGirl.create(:user)
+    sign_in_user
     post :create
     assert flash[:alert].present?
   end

@@ -7,7 +7,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test '#index redirects to today page if logged in' do
-    sign_in :user, FactoryGirl.create(:user)
+    sign_in_user
     get :index
     assert_redirected_to today_path
   end
@@ -18,7 +18,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test '#rules renders when logged in' do
-    sign_in :user, FactoryGirl.create(:user)
+    sign_in_user
     get :rules
     assert_response :success
   end
@@ -29,7 +29,7 @@ class PagesControllerTest < ActionController::TestCase
   end
 
   test '#menu renders when logged in' do
-    sign_in :user, FactoryGirl.create(:user)
+    sign_in_user
     get :menu
     assert_response :success
   end
