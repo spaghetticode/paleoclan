@@ -3,7 +3,7 @@ require File.expand_path('../../config/environment', __FILE__)
 require 'rails/test_help'
 
 class ActiveSupport::TestCase
-  # Setup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
+  # Settingsup all fixtures in test/fixtures/*.(yml|csv) for all tests in alphabetical order.
   #
   # Note: You'll currently still have to declare fixtures explicitly in integration tests
   # -- they do not yet inherit this setting
@@ -19,12 +19,9 @@ class ActionController::TestCase
 end
 
 class Settings
-  class << self
-    def capability;3;end
-    def consecutive;2;end
-    def roulette;5;end
-    def open_hour;10;end
-    def close_hour;12;end
-    def default;['Andrea Longhi'];end
+  @factory = FactoryGirl.create(:settings)
+
+  def method_missing(name, *args, &block)
+    @factory.send name, *args, &block
   end
 end
