@@ -25,6 +25,7 @@ class TodaysControllerTest < ActionController::TestCase
 
   test '#roulette renders on roulette days' do
     @controller.stubs(:roulette?).returns(true)
+    @controller.stubs(:extract_winners)
     get :roulette
     assert_response :success
   end
