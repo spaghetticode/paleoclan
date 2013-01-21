@@ -35,7 +35,11 @@ class User < ActiveRecord::Base
   end
 
   def unban
-    update_column :banned, false
+    if ban_count < Settings.max_ban
+      update_column :banned, false
+    else
+      false
+    end
   end
 
   def bet?(day)

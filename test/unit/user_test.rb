@@ -64,6 +64,12 @@ class UserTest < ActiveSupport::TestCase
     assert !@user.banned
   end
 
+  test '#unban has no effect if user has been banned 3 times' do
+    3.times {@user.ban}
+    @user.unban
+    assert @user.banned
+  end
+
   test '#unban doesnt change ban_count' do
     @user.ban
     @user.unban
