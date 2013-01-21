@@ -1,0 +1,17 @@
+<table class="users-admin">
+  <tr>
+    <th>name</th>
+    <th>ban count</th>
+    <th>banned</th>
+    <th colspan="2">actions</th>
+  </tr>
+  <% @users.each do |user| %>
+    <tr>
+      <td><%= user.name %></td>
+      <td><%= user.ban_count %></td>
+      <td><%= user.banned %></td>
+      <td><%= button_to_change_ban_status(user) %></td>
+      <td><%= button_to 'destroy', '' %></td>
+    </tr>
+  <% end %>
+</table>

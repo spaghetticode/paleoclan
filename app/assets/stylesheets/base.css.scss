@@ -85,4 +85,15 @@ body {
       font-size: 15px;
     }
   }
+  table.users-admin {
+    margin: 0 auto;
+    width:500px;
+    border:1px solid gray;
+    border-radius: 5px;
+    padding:10px;
+    td {
+      text-align:center;
+    }
+    font-size: 14px;
+  }
 }
