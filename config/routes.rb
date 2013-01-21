@@ -10,7 +10,8 @@ Paleoclan::Application.routes.draw do
 
   namespace :admin do
     get '/' => 'settings#edit'
-    resource :settings, :only => [:edit, :update]
+    resource  :settings, :only => [:edit, :update]
+    resources :users,    :only => :index
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
