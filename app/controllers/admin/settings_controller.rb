@@ -7,7 +7,8 @@ class Admin::SettingsController < AdminController
 
   def update
     @settings = Settings.instance
-    if @settings.update_attributes params[:settings]
+    # TODO this is evil!
+    if @settings.update_attributes :data => Hashifier.new(params[:settings][:data])
       redirect_to edit_admin_settings_path, :notice => 'Configurazione aggiornata.'
     else
       flash[:alert] = 'Non è possibile aggiornare la configurazione.'
