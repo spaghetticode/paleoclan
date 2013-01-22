@@ -11,7 +11,10 @@ Paleoclan::Application.routes.draw do
   namespace :admin do
     get '/' => 'settings#edit'
     resource  :settings, :only => [:edit, :update]
-    resources :users,    :only => :index
+    resources :users,    :except => [:edit, :update, :show] do
+      delete :destroy
+      put :ban, :unban
+    end
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
