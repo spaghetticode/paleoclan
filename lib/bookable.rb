@@ -15,6 +15,10 @@ module Bookable
 
     default_scope order('created_at DESC')
 
+    def user_name
+      user.name
+    end
+
     private
 
     def validate_day
