@@ -15,6 +15,7 @@ Paleoclan::Application.routes.draw do
       delete :destroy
       put :ban, :unban
     end
+    resources :slots, :only => [:index, :destroy]
   end
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
