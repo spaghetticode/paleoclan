@@ -105,4 +105,13 @@ body {
   .unban {
     color: green;
   }
+  table.slots {
+    margin: 0 auto;
+    td {
+      padding: 5px 15px;
+      a {
+        color: red;
+      }
+    }
+  }
 }

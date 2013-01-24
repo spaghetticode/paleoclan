@@ -1,0 +1,8 @@
+<table class="slots">
+  <% @slots.each do |slot| %>
+    <tr>
+      <td><%= slot.user_name %></td>
+      <td><%= link_to 'elimina', admin_slot_path(slot), :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
