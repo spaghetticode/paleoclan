@@ -53,6 +53,22 @@ class Day < ActiveRecord::Base
     end
   end
 
+  def roulette?
+    wday == Settings.roulette
+  end
+
+  def wday
+    date.wday
+  end
+
+  def reservations_time?
+    hour >= Settings.open_hour and hour < Settings.close_hour
+  end
+
+  def hour
+    @hour ||= Time.zone.now.hour
+  end
+
   private
 
   def set_capability

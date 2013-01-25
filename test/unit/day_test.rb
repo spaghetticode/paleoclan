@@ -88,4 +88,29 @@ class DayTest < ActiveSupport::TestCase
       @day.extract_winners
     end
   end
+
+  test '#reservations_time? is true when hour is lower than settings close_hour'do
+    @day.stubs(:hour).returns(11)
+    assert @day.reservations_time?
+  end
+
+  test '#reservations_time? is false when hour is equal to settings close_hour'do
+    @day.stubs(:hour).returns(12)
+    assert !@day.reservations_time?
+  end
+
+   test '#reservations_time? is false when hour is lower than settings open_hour'do
+    @day.stubs(:hour).returns(9)
+    assert !@day.reservations_time?
+  end
+
+  test '#roulette is true on roulette day' do
+    @day.stubs(:wday).returns(5)
+    assert @day.roulette?
+  end
+
+  test '#roulette is false on other days' do
+    @day.stubs(:wday).returns(2)
+    assert !@day.roulette?
+  end
 end
