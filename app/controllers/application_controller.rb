@@ -4,23 +4,9 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def reservations_time?
-    hour >= Settings.open_hour and hour <= Settings.close_hour
-  end
+  delegate :reservations_time?, :roulette?, :hour, :weekend?, :to => :today
 
   def today
     @today ||= Day.today
-  end
-
-  def roulette?
-    Date.today.wday == Settings.roulette
-  end
-
-  def hour
-    @hour ||= Time.zone.now.hour
-  end
-
-  def weekend?
-    today.weekend?
   end
 end
