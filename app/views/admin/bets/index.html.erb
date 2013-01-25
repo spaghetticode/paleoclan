@@ -1,0 +1,8 @@
+<table class="bets">
+  <% @bets.each do |bet| %>
+    <tr>
+      <td><%= bet.user_name %></td>
+      <td><%= link_to 'elimina', admin_bet_path(bet), :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
