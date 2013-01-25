@@ -11,6 +11,6 @@ class TodaysController < AuthenticatedController
   private
 
   def extract_winners
-    today.extract_winners if !today.full? and hour > Settings.close_hour
+    today.extract_winners if !today.full? and hour >= Settings.close_hour
   end
 end
