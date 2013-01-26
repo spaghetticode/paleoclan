@@ -1,8 +1,14 @@
-<table class="slots">
+<h2>Prenotazioni</h2>
+
+<table class="slots-admin">
+  <tr>
+    <th>nome</th>
+    <th>azioni</th>
+  </tr>
   <% @slots.each do |slot| %>
     <tr>
       <td><%= slot.user_name %></td>
-      <td><%= link_to 'elimina', admin_slot_path(slot), :method => :delete %></td>
+      <td><%= link_to 'elimina', admin_slot_path(slot), :method => :delete, :class => 'destroy' %></td>
     </tr>
   <% end %>
 </table>

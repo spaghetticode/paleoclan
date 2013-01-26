@@ -85,7 +85,7 @@ body {
       font-size: 15px;
     }
   }
-  table.users-admin {
+  table.users-admin, .slots-admin, .bets-admin {
     margin: 0 auto;
     width:500px;
     border:1px solid gray;
@@ -104,14 +104,5 @@ body {
   }
   .unban {
     color: green;
-  }
-  table.slots, table.bets {
-    margin: 0 auto;
-    td {
-      padding: 5px 15px;
-      a {
-        color: red;
-      }
-    }
   }
 }

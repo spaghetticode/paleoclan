@@ -1,9 +1,11 @@
+<h2>Utenti</h2>
+
 <table class="users-admin">
   <tr>
-    <th>name</th>
-    <th>ban count</th>
-    <th>banned</th>
-    <th colspan="2">actions</th>
+    <th>nome</th>
+    <th>conteggio ban</th>
+    <th>bannato</th>
+    <th colspan="2">azioni</th>
   </tr>
   <% @users.each do |user| %>
     <tr>
@@ -11,7 +13,7 @@
       <td><%= user.ban_count %></td>
       <td><%= user.banned %></td>
       <td><%= button_to_change_ban_status(user) %></td>
-      <td><%= button_to 'destroy', admin_user_path(user), :class => 'destroy', :method => :delete %></td>
+      <td><%= button_to 'elimina', admin_user_path(user), :class => 'destroy', :method => :delete %></td>
     </tr>
   <% end %>
 </table>

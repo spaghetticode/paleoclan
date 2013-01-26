@@ -14,8 +14,13 @@
       <%= link_to 'home',   root_path %> |
       <%= link_to 'regole', rules_path %> |
       <%= link_to 'menu',   menu_path %>
+      <% admin_area do %>
+        | <%= link_to 'users', admin_users_path %>
+        | <%= link_to 'slots', admin_slots_path %>
+        | <%= link_to 'bets', admin_bets_path %>
+        | <%= link_to 'settings', edit_admin_settings_path %>
+      <% end %>
     </section>
-
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
