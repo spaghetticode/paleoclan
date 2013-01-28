@@ -3,11 +3,13 @@
 <table class="slots-admin">
   <tr>
     <th>nome</th>
+    <th>email</th>
     <th>azioni</th>
   </tr>
   <% @slots.each do |slot| %>
     <tr>
       <td><%= slot.user_name %></td>
+      <td><%= slot.user_email %></td>
       <td><%= link_to 'elimina', admin_slot_path(slot), :method => :delete, :class => 'destroy' %></td>
     </tr>
   <% end %>

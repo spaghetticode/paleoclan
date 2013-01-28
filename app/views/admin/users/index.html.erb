@@ -3,6 +3,7 @@
 <table class="users-admin">
   <tr>
     <th>nome</th>
+    <th>email</th>
     <th>conteggio ban</th>
     <th>bannato</th>
     <th colspan="2">azioni</th>
@@ -10,6 +11,7 @@
   <% @users.each do |user| %>
     <tr>
       <td><%= user.name %></td>
+      <td><%= user.email %></td>
       <td><%= user.ban_count %></td>
       <td><%= user.banned %></td>
       <td><%= button_to_change_ban_status(user) %></td>

@@ -3,11 +3,13 @@
 <table class="bets-admin">
   <tr>
     <th>nome</th>
+    <th>email</th>
     <th>azioni</th>
   </tr>
   <% @bets.each do |bet| %>
     <tr>
       <td><%= bet.user_name %></td>
+      <td><%= bet.user_email %></td>
       <td><%= link_to 'elimina', admin_bet_path(bet), :method => :delete, :class => 'destroy' %></td>
     </tr>
   <% end %>

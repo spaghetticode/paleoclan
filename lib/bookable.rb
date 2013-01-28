@@ -19,6 +19,10 @@ module Bookable
       user.name
     end
 
+    def user_email
+      user.email
+    end
+
     private
 
     def validate_day
