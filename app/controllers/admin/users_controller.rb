@@ -20,7 +20,7 @@ class Admin::UsersController < AdminController
   end
 
   def destroy
-    @user = User.find params[:user_id]
+    @user = User.find params[:id]
     @user.destroy
     redirect_to admin_users_path, :notice => 'Utente cancellato.'
   end
