@@ -10,7 +10,7 @@
       <% end %>
     </p>
   <% else %>
-    <p>Le prenotazioni ora sono chiuse. Ripassa tra le 10:00 e le 12:00</p>
+    <p>Le prenotazioni ora sono chiuse. Ripassa tra le <%= Settings.open_hour %>:00 e le <%= Settings.close_hour %>:00</p>
   <% end %>
 
   <h2>Persone prenotate per oggi</h2>
