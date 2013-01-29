@@ -15,6 +15,10 @@ class Settings < ActiveRecord::Base
     @data ||= instance.data
   end
 
+  def self.reset
+    @data = nil
+  end
+
   KEYS.each do |name|
     define_singleton_method name do
       data[name]

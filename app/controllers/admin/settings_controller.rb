@@ -9,6 +9,7 @@ class Admin::SettingsController < AdminController
     @settings = Settings.instance
     # TODO this is evil!
     if @settings.update_attributes :data => eval(params[:settings][:data])
+      Settings.reset
       redirect_to edit_admin_settings_path, :notice => 'Configurazione aggiornata.'
     else
       flash[:alert] = 'Non è possibile aggiornare la configurazione.'
