@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :bets
   has_many :slots
+  has_many :ratings
 
   devise :omniauthable
   attr_accessor :password

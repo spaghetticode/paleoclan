@@ -1,6 +1,7 @@
 class Day < ActiveRecord::Base
   has_many :bets
   has_many :slots
+  has_many :ratings
   has_many :users, :through => :slots
 
   attr_accessible :capability, :date
