@@ -80,4 +80,18 @@ class UserTest < ActiveSupport::TestCase
     bet = FactoryGirl.create :bet, :user => @user
     assert @user.bet?(bet.day)
   end
+
+  test '#can_rate? is true when user has a slot on the given day' do
+    slot = FactoryGirl.create :slot, :user => @user
+    assert @user.can_rate?(slot.day)
+  end
+
+  test '#can_rate? is false when user has no slot on the given day' do
+    assert !@user.can_rate?(Day.today)
+  end
+
+  test '#can_rate? is true when user name is included in settings defaults' do
+    @user.stubs(:name).returns(Settings.default.first)
+    assert @user.can_rate?(Day.today)
+  end
 end

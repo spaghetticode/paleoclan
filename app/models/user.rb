@@ -63,6 +63,11 @@ class User < ActiveRecord::Base
     res
   end
 
+  def can_rate?(day)
+    return true if Settings.default.include?(name)
+    day.users.include?(self)
+  end
+
   private
 
   def test_days
