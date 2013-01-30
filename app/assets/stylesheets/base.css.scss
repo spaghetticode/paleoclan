@@ -15,7 +15,7 @@ body {
     }
   }
   margin: 25px auto;
-  width: 550px;
+  width: 500px;
   background: white;
   padding: 30px;
   border: 6px solid #444;
@@ -88,8 +88,6 @@ body {
   table.users-admin, .slots-admin, .bets-admin {
     margin: 0 auto;
     width:500px;
-    border:1px solid gray;
-    border-radius: 5px;
     padding:10px;
     td {
       text-align:center;
