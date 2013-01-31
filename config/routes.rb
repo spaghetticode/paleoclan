@@ -4,6 +4,7 @@ Paleoclan::Application.routes.draw do
   match '/rules' => 'pages#rules'
 
   resources :slots, :bets
+  resources :ratings, :except => [:edit, :destroy]
   resource :today do
     get :roulette
   end
@@ -13,7 +14,7 @@ Paleoclan::Application.routes.draw do
     resource  :settings, :only => [:edit, :update]
     resources :users,    :except => [:edit, :update, :show] do
       delete :destroy
-      put :ban, :unban
+      put     :ban, :unban
     end
     resources :slots, :only => [:index, :destroy]
     resources :bets,  :only => [:index, :destroy]

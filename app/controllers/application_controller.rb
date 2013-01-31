@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-  helper_method :today, :reservations_time?, :roulette?, :weekend?
+  helper_method :today, :reservations_time?, :roulette?, :weekend?, :rating_allowed?
 
   private
 
@@ -8,5 +8,9 @@ class ApplicationController < ActionController::Base
 
   def today
     @today ||= Day.today
+  end
+
+  def rating_allowed?
+    hour > Settings.close_hour and current_user.can_rate?(today)
   end
 end
