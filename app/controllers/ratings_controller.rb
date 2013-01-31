@@ -15,14 +15,14 @@ class RatingsController < ApplicationController
       :value => params[:value]
     )
     @rating.save
-    render :nil => true
+    render :nothing => true
   end
 
   def update
     @rating = current_user.ratings.find(params[:id])
     @rating.value = params[:value]
     @rating.save
-    render :nil => true
+    render :nothing => true
   end
 
   private
