@@ -32,4 +32,14 @@ class RatingTest < ActiveSupport::TestCase
     @rating.valid?
     assert @rating.errors[:user_id].present?
   end
+
+  test ':for_user builds a new rating' do
+    user = FactoryGirl.create :user
+    assert Rating.for_user(user).new_record?
+  end
+
+  test ':for_user finds the existing rating' do
+    rating = FactoryGirl.create :rating
+    assert_equal rating, Rating.for_user(rating.user)
+  end
 end
