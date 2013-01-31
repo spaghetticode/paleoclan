@@ -8,4 +8,13 @@ module ApplicationHelper
   def admin_area
     yield if current_user.present? and current_user.admin?
   end
+
+  def body_class
+    [controller.controller_name, controller.action_name].join('_')
+  end
+
+  def rating_link
+    url = rating_allowed? ? new_rating_path : ratings_path
+    link_to 'feedback', url
+  end
 end

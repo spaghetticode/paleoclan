@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
   <link href='http://fonts.googleapis.com/css?family=Fjalla+One' rel='stylesheet' type='text/css'>
 </head>
-<body>
+<body class="<%= body_class %>">
   <div id="container">
     <h1>Clan Longhi <%= l today.date %></h1>
     <section id="navigation">
@@ -15,11 +15,12 @@
       <%= link_to 'regole', rules_path %> |
       <%= link_to 'menu',   menu_path %>
       <% admin_area do %>
-        | <%= link_to 'users', admin_users_path %>
-        | <%= link_to 'slots', admin_slots_path %>
-        | <%= link_to 'bets', admin_bets_path %>
+        | <%= link_to 'users',    admin_users_path %>
+        | <%= link_to 'slots',    admin_slots_path %>
+        | <%= link_to 'bets',     admin_bets_path %>
         | <%= link_to 'settings', edit_admin_settings_path %>
       <% end %>
+      | <%= rating_link %>
     </section>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>

@@ -1,0 +1,35 @@
+<h2>Feedback</h2>
+
+<p>Facci sapere com'era il pranzo di oggi ;-)</p>
+
+<%= form_for @rating, :html => {:class => 'rating', :data => {:checked => @rating.value}} do |f| %>
+  <input name="star1" type="radio" value="1" class="star">
+  <input name="star1" type="radio" value="2" class="star">
+  <input name="star1" type="radio" value="3" class="star">
+  <input name="star1" type="radio" value="4" class="star">
+  <input name="star1" type="radio" value="5" class="star">
+<% end %>
+
+<script type="text/javascript">
+  var form    = $('.rating');
+  var checked = form.data('checked');
+  var method  = $('[name="_method"]').val() || 'POST';
+  var notice  = $('.notice');
+
+  if (checked) {
+    var selector = '[name="star1"][value="'+checked+'"]';
+    $(selector).attr('checked',true);
+  }
+
+  $('input.star').rating({
+    callback: function(value) {
+      $.ajax({
+        type : method,
+        url  : form.attr('action'),
+        data : {value: value}
+      }).done(function() {
+        form.effect('highlight', {}, 2000);
+      });
+    }
+  });
+</script>

@@ -103,4 +103,14 @@ body {
   .unban {
     color: green;
   }
+  .rating {
+    width: 85px;
+    margin: 15px auto 40px auto;
+    padding: 10px 13px;
+    clear: both;
+    overflow: auto;
+    .rating-cancel {
+      display: none !important;
+    }
+  }
 }
