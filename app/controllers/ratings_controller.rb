@@ -2,7 +2,7 @@ class RatingsController < ApplicationController
   before_filter :check_user_can_rate, :except => :index
 
   def index
-    @ratings = Rating.all # add pagination
+    @ratings = Rating.limit(20).grouped
   end
 
   def new

@@ -1,1 +1,10 @@
-<h3>In costruzione ;-)</h3>
+<h3>Feedback</h3>
+<% @ratings.each do |day, ratings| %>
+  <h4><%= day.date %></h4>
+  <% ratings.each do |rating| %>
+    <p>
+      <span class="name"><%= rating.user_name %></span>
+      <span class="rating"><%= rating.value %></span>
+    </p>
+  <% end %>
+<% end %>

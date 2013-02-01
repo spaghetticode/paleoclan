@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
   end
 
   def rating_allowed?
+    return false unless current_user
     hour > Settings.close_hour and current_user.can_rate?(today)
   end
 end
