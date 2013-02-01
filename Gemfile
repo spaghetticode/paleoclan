@@ -21,6 +21,7 @@ group :test, :development do
   gem 'ruby-prof'
   gem 'mocha', :require => false
   gem 'pry'
+  gem 'taps'
 end
 
 group :tools do
