@@ -114,3 +114,28 @@ body {
     }
   }
 }
+
+.ratings {
+  margin: 0 auto;
+  width: 450px;
+  th, td {
+    text-align: left;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+    width: 166px;
+    span {
+      height: 16px;
+      width: 16px;
+      background: url('/assets/star.gif') no-repeat;
+      display: inline-block;
+      &.on {
+        background-position: 0 -32px;
+      }
+    }
+  }
+  th {
+    text-transform: uppercase;
+    padding-bottom: 10px;
+  }
+}

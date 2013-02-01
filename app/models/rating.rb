@@ -23,4 +23,12 @@ class Rating < ActiveRecord::Base
   def user_name
     user.try(:name)
   end
+
+  def on
+    value
+  end
+
+  def off
+    5 - on
+  end
 end

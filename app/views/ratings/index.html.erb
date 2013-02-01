@@ -1,10 +1,24 @@
-<h3>Feedback</h3>
-<% @ratings.each do |day, ratings| %>
-  <h4><%= day.date %></h4>
-  <% ratings.each do |rating| %>
-    <p>
-      <span class="name"><%= rating.user_name %></span>
-      <span class="rating"><%= rating.value %></span>
-    </p>
+<h2>Feedback</h2>
+<table class="ratings" cellspacing="0" cellpadding="0">
+  <tr>
+    <th>giorno</th>
+    <th>utente</th>
+    <th>valutazione</th>
+  </tr>
+  <% @ratings.each do |day, ratings| %>
+    <% ratings.each do |rating| %>
+      <tr>
+        <td class="day"><%= day.date %></td>
+        <td class="name"><%= rating.user_name %></td>
+        <td class="r">
+          <% rating.on.times do %>
+            <span class="on"></span>
+          <% end %>
+          <% rating.off.times do %>
+            <span class="off"></span>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
   <% end %>
-<% end %>
+</table>
