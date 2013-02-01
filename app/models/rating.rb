@@ -19,4 +19,8 @@ class Rating < ActiveRecord::Base
       hash
     end
   end
+
+  def user_name
+    user.try(:name)
+  end
 end
