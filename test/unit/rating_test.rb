@@ -42,4 +42,17 @@ class RatingTest < ActiveSupport::TestCase
     rating = FactoryGirl.create :rating
     assert_equal rating, Rating.for_user(rating.user)
   end
+
+  test ':grouped groups by day' do
+    groups = (0..2).inject [] do |array, n|
+      day = FactoryGirl.create :day, :date => Date.today + n
+      rating = FactoryGirl.create :rating, :day => day
+      array << [day, rating]
+    end
+    grouped = Rating.grouped
+    groups.each do |couple|
+      day, rating = couple
+      assert_equal grouped[day], [rating]
+    end
+  end
 end

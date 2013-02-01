@@ -11,4 +11,12 @@ class Rating < ActiveRecord::Base
   def self.for_user(user)
     where(:user_id => user.id).first or new
   end
+
+  def self.grouped
+    all.inject Hash.new do |hash, rating|
+      hash[rating.day] ||= []
+      hash[rating.day] << rating
+      hash
+    end
+  end
 end
