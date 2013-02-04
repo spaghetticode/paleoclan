@@ -2,7 +2,7 @@ class RatingsController < ApplicationController
   before_filter :check_user_can_rate, :except => :index
 
   def index
-    @ratings = Rating.limit(20).grouped
+    @ratings = Rating.page(params[:page])
   end
 
   def new

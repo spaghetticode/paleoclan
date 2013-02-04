@@ -7,6 +7,11 @@ body {
   font-family: 'Fjalla One', sans-serif;
 }
 
+a {
+  color: blue;
+  text-decoration: none;
+}
+
 #container {
   p.login {
     text-align: center;
@@ -138,4 +143,10 @@ body {
     text-transform: uppercase;
     padding-bottom: 10px;
   }
+}
+
+.pagination {
+  text-align: center;
+  margin-top:25px;
+  font-size:14px;
 }

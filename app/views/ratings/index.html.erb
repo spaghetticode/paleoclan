@@ -5,7 +5,7 @@
     <th>utente</th>
     <th>valutazione</th>
   </tr>
-  <% @ratings.each do |day, ratings| %>
+  <% @ratings.grouped.each do |day, ratings| %>
     <% ratings.each do |rating| %>
       <tr>
         <td class="day"><%= day.date %></td>
@@ -22,3 +22,4 @@
     <% end %>
   <% end %>
 </table>
+<%= paginate @ratings %>
