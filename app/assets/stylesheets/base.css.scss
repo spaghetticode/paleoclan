@@ -145,6 +145,13 @@ a {
   }
 }
 
+div.star-rating-on a {
+  background-position:0 -32px!important;
+}
+div.star-rating-hover a {
+  background-position:0 -16px;
+}
+
 .pagination {
   text-align: center;
   margin-top:25px;
