@@ -98,4 +98,10 @@ class UserTest < ActiveSupport::TestCase
     @user.stubs(:name).returns(Settings.default.first)
     assert @user.can_rate?(Day.today)
   end
+
+  test '#add_credit adds a credit to the user' do
+    assert_difference '@user.credits.count', +1 do
+      @user.add_credit
+    end
+  end
 end

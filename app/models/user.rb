@@ -70,6 +70,10 @@ class User < ActiveRecord::Base
     day.users.include?(self)
   end
 
+  def add_credit
+    credits.create
+  end
+
   private
 
   def test_days
