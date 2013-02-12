@@ -13,6 +13,10 @@ class UserTest < ActiveSupport::TestCase
     assert !@user.banned?
   end
 
+  test 'has credits association' do
+    assert @user.credits
+  end
+
   test 'cant book when banned' do
     @user.stubs(:banned?).returns(true)
     today  = FactoryGirl.create :day, :date => Date.parse('2013/1/3')
