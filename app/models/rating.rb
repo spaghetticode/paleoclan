@@ -8,6 +8,8 @@ class Rating < ActiveRecord::Base
   validates_inclusion_of :value, :in => 1..5
   validates_uniqueness_of :user_id, :scope => :day_id
 
+  default_scope order('created_at DESC')
+
   def self.for_user(user)
     where(:user_id => user.id).first or new
   end
