@@ -11,62 +11,71 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130225239) do
+ActiveRecord::Schema.define(:version => 20130212212604) do
 
   create_table "bets", :force => true do |t|
-    t.integer  "user_id"
-    t.integer  "day_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer   "user_id"
+    t.integer   "day_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
+  create_table "credits", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "used",       :default => false
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  add_index "credits", ["user_id"], :name => "index_credits_on_user_id"
+
   create_table "days", :force => true do |t|
-    t.date     "date"
-    t.integer  "capability"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.date      "date"
+    t.integer   "capability"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "ratings", :force => true do |t|
-    t.integer  "value"
-    t.integer  "day_id"
-    t.integer  "user_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer   "value"
+    t.integer   "day_id"
+    t.integer   "user_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "settings", :force => true do |t|
-    t.string   "data"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.string    "data"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "slots", :force => true do |t|
-    t.integer  "user_id",    :null => false
-    t.integer  "day_id",     :null => false
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.integer   "user_id"
+    t.integer   "day_id"
+    t.timestamp "created_at", :null => false
+    t.timestamp "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
-    t.string   "email",                                 :default => "",    :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
-    t.string   "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at",                                               :null => false
-    t.datetime "updated_at",                                               :null => false
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "name"
-    t.boolean  "banned",                                :default => false
-    t.integer  "ban_count",                             :default => 0
-    t.boolean  "admin",                                 :default => false
+    t.string    "email",                                 :default => "",    :null => false
+    t.string    "encrypted_password",     :limit => 128, :default => "",    :null => false
+    t.string    "reset_password_token"
+    t.timestamp "reset_password_sent_at"
+    t.timestamp "remember_created_at"
+    t.integer   "sign_in_count",                         :default => 0
+    t.timestamp "current_sign_in_at"
+    t.timestamp "last_sign_in_at"
+    t.string    "current_sign_in_ip"
+    t.string    "last_sign_in_ip"
+    t.timestamp "created_at",                                               :null => false
+    t.timestamp "updated_at",                                               :null => false
+    t.string    "provider"
+    t.string    "uid"
+    t.string    "name"
+    t.boolean   "banned",                                :default => false
+    t.integer   "ban_count",                             :default => 0
+    t.boolean   "admin",                                 :default => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
