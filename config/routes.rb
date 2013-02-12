@@ -14,7 +14,13 @@ Paleoclan::Application.routes.draw do
     resource  :settings, :only => [:edit, :update]
     resources :users,    :except => [:edit, :update, :show] do
       delete :destroy
-      put     :ban, :unban
+      put :ban, :unban
+      resources :credits, :only => :create do
+        collection do
+          put :use
+          delete :destroy
+        end
+      end
     end
     resources :slots, :only => [:index, :destroy]
     resources :bets,  :only => [:index, :destroy]
