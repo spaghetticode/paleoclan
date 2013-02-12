@@ -17,6 +17,9 @@ class UserTest < ActiveSupport::TestCase
     assert @user.credits
   end
 
+
+  # booking related methods
+
   test 'cant book when banned' do
     @user.stubs(:banned?).returns(true)
     today  = FactoryGirl.create :day, :date => Date.parse('2013/1/3')
@@ -50,6 +53,9 @@ class UserTest < ActiveSupport::TestCase
     assert @user.cant_book?(today)
   end
 
+
+  # ban related methods
+
   test 'is banned when ban_count is not zero and banned attribute is true' do
     @user.banned = true
     @user.ban_count = 1
@@ -80,6 +86,9 @@ class UserTest < ActiveSupport::TestCase
     assert_equal 1, @user.ban_count
   end
 
+
+  # rating related methods
+
   test '#bet? is true when user has already bet on the given day' do
     bet = FactoryGirl.create :bet, :user => @user
     assert @user.bet?(bet.day)
@@ -99,9 +108,42 @@ class UserTest < ActiveSupport::TestCase
     assert @user.can_rate?(Day.today)
   end
 
+
+  # credit related methods
+
   test '#add_credit adds a credit to the user' do
     assert_difference '@user.credits.count', +1 do
       @user.add_credit
     end
+  end
+
+  test '#use_credit use a credit if available' do
+    credit = FactoryGirl.create :credit, :user => @user
+    @user.use_credit
+    assert credit.reload.used
+  end
+
+  test '#use_credit is truthy when successful' do
+    credit = FactoryGirl.create :credit, :user => @user
+    assert @user.use_credit
+  end
+
+  test '#use_credit is falsy when fails' do
+    assert !@user.use_credit
+  end
+
+  test '#destroy_credit destroys a user credit' do
+    credit = FactoryGirl.create :credit, :user => @user
+    @user.destroy_credit
+    assert @user.credits.reload.empty?
+  end
+
+  test '#destroy_credit is truthy when successful' do
+    credit = FactoryGirl.create :credit, :user => @user
+    assert @user.destroy_credit
+  end
+
+  test '#destroy_credit is falsy when fails' do
+    assert !@user.destroy_credit
   end
 end

@@ -74,6 +74,16 @@ class User < ActiveRecord::Base
     credits.create
   end
 
+  def use_credit
+    credit = credits.unused.first
+    credit.use if credit
+  end
+
+  def destroy_credit
+    credit = credits.unused.first
+    credit.destroy if credit
+  end
+
   private
 
   def test_days
