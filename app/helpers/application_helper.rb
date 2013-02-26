@@ -17,4 +17,9 @@ module ApplicationHelper
     url = rating_allowed? ? new_rating_path : ratings_path
     link_to 'feedback', url
   end
+
+  def mascotte_img
+    path = controller.action_name == 'menu' ? '/meme.jpg' : '/paleobros.jpg'
+    image_tag path
+  end
 end
