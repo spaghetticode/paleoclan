@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ruby-prof/ruby-prof.git
+  revision: 26e07cd649dcb34fe7c2a193bede140a346d9462
+  specs:
+    ruby-prof (0.13.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -89,7 +95,7 @@ GEM
     metaclass (0.0.1)
     method_source (0.8.1)
     mime-types (1.19)
-    mocha (0.13.1)
+    mocha (0.12.1)
       metaclass (~> 0.0.1)
     multi_json (1.5.0)
     multipart-post (1.1.5)
@@ -142,7 +148,6 @@ GEM
       json (~> 1.4)
     rest-client (1.6.7)
       mime-types (>= 1.16)
-    ruby-prof (0.12.0)
     sass (3.2.5)
     sass-rails (3.2.6)
       railties (~> 3.2.0)
@@ -188,14 +193,14 @@ DEPENDENCIES
   jquery-star-rating-rails
   jquery-ui-rails
   kaminari
-  mocha
+  mocha (= 0.12.1)
   omniauth
   omniauth-facebook
   pg
   pry
   rails (= 3.2.11)
   rb-fsevent (~> 0.9.1)
-  ruby-prof
+  ruby-prof!
   sass-rails (~> 3.2.3)
   sqlite3
   taps

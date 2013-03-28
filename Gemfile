@@ -19,8 +19,8 @@ group :test, :development do
   gem 'sqlite3'
   gem 'factory_girl_rails'
   gem 'rb-fsevent', '~> 0.9.1'
-  gem 'ruby-prof'
-  gem 'mocha', :require => false
+  gem 'ruby-prof', :git => "https://github.com/ruby-prof/ruby-prof.git"
+  gem 'mocha', '0.12.1', :require => false
   gem 'pry'
   gem 'taps'
 end
