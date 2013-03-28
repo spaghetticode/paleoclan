@@ -6,7 +6,7 @@
       <% unless today.full? %>
         <%= button_to 'prenota', slots_path, :method => :post, :class => 'bookme' %>
       <% else %>
-        Spiacente, il clan oggi è già al completo.
+        <%= full_clan_message_for current_user, today.user_names %>
       <% end %>
     </p>
   <% else %>
