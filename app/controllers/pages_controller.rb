@@ -1,5 +1,5 @@
 class PagesController < AuthenticatedController
-  skip_before_filter :authenticate_user!, :only => :index
+  skip_before_filter :authenticate_user!, :only => [:index, :closed]
 
   def index
     redirect_to today_path if current_user
