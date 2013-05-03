@@ -1,4 +1,7 @@
 <% if reservations_time? %>
+  <p class="alert black">Il costo del pranzo al paleoclan è di 10 euro prezzo fisso da pagare in anticipo.
+    <br/>
+    Il denaro extra accumulato verrà reso all'azienda che ne disporrà per il bene collettivo.</p>
   <p>
     <% unless current_user.bet?(today) %>
       Partecipa alla roulette del venerdì, puoi vincere l'iscrizione al clan di oggi!
